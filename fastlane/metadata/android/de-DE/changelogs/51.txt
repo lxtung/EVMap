@@ -1,2 +1,0 @@
-- Android Auto: Anzeige des Ortsnamens (wenn genug Platz und nicht eindeutig)
-- Abstürze behoben

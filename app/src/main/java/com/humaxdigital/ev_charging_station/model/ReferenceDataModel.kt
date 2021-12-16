@@ -1,0 +1,3 @@
+package com.humaxdigital.ev_charging_station.model
+
+abstract class ReferenceData

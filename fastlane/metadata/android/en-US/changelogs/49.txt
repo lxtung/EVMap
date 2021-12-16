@@ -1,3 +1,0 @@
-- Fixed crashes
-- Fixed problem when filtering by connectors
-- Improved performance when switching between map and filters view

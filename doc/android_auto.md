@@ -4,7 +4,7 @@ Testing EVMap on Android Auto
 In addition to the Android app on the phone, EVMap is also available as an Android Auto app built
 using the [Android for Cars App Library](https://developer.android.com/training/cars/apps). The
 Android Auto app is only available in the `google` build flavor of the app, and thus its code is
-located in the `app/src/google/java` directory under the `net.vonforst.evmap.auto` package.
+located in the `app/src/google/java` directory under the `com.humaxdigital.ev_charging_station.auto` package.
 
 This page contains instructions on how to test the Android Auto app using the Desktop Head Unit
 (DHU).

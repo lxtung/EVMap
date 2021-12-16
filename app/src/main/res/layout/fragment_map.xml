@@ -5,15 +5,15 @@
 
     <data>
 
-        <import type="net.vonforst.evmap.viewmodel.MapViewModel" />
+        <import type="com.humaxdigital.ev_charging_station.viewmodel.MapViewModel" />
 
-        <import type="net.vonforst.evmap.viewmodel.Status" />
+        <import type="com.humaxdigital.ev_charging_station.viewmodel.Status" />
 
         <import type="com.mahc.custombottomsheetbehavior.BottomSheetBehaviorGoogleMapsLike" />
 
         <variable
             name="vm"
-            type="net.vonforst.evmap.viewmodel.MapViewModel" />
+            type="com.humaxdigital.ev_charging_station.viewmodel.MapViewModel" />
     </data>
 
     <androidx.coordinatorlayout.widget.CoordinatorLayout
@@ -69,7 +69,7 @@
                         android:focusable="true"
                         android:focusableInTouchMode="true">
 
-                        <net.vonforst.evmap.ui.AutocompleteTextViewWithSuggestions
+                        <com.humaxdigital.ev_charging_station.ui.AutocompleteTextViewWithSuggestions
                             android:id="@+id/search"
                             android:layout_width="0dp"
                             android:layout_weight="1"
@@ -151,7 +151,7 @@
             app:backgroundTint="?android:colorBackground"
             app:borderWidth="0dp"
             app:isFabActive="@{ vm.myLocationEnabled }"
-            app:layout_behavior="net.vonforst.evmap.ui.HideOnScrollFabBehavior" />
+            app:layout_behavior="com.humaxdigital.ev_charging_station.ui.HideOnScrollFabBehavior" />
 
         <androidx.core.widget.NestedScrollView
             android:id="@+id/bottom_sheet"
@@ -214,7 +214,7 @@
             app:borderWidth="0dp"
             app:fabSize="mini"
             app:srcCompat="@drawable/ic_layers"
-            app:layout_behavior="net.vonforst.evmap.ui.HideOnExpandFabBehavior"/>
+            app:layout_behavior="com.humaxdigital.ev_charging_station.ui.HideOnExpandFabBehavior"/>
 
         <androidx.cardview.widget.CardView
             android:id="@+id/layers_sheet"

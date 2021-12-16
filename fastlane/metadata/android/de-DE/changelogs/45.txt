@@ -1,3 +1,0 @@
-Verbesserungen:
-- Kleinere Verbesserungen für die Chargeprice.app-Integration
-- Verschiedene Abstürze behoben

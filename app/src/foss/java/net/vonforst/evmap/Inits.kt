@@ -1,4 +1,4 @@
-package net.vonforst.evmap
+package com.humaxdigital.ev_charging_station
 
 import android.app.Activity
 import android.content.Context

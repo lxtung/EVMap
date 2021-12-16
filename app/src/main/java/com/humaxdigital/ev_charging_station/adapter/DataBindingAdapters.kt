@@ -1,0 +1,226 @@
+package com.humaxdigital.ev_charging_station.adapter
+
+import android.view.LayoutInflater
+import android.view.View
+import android.view.ViewGroup
+import androidx.databinding.DataBindingUtil
+import androidx.databinding.ViewDataBinding
+import androidx.recyclerview.widget.DiffUtil
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.ListAdapter
+import androidx.recyclerview.widget.RecyclerView
+import com.google.android.material.chip.Chip
+import com.humaxdigital.ev_charging_station.BR
+import com.humaxdigital.ev_charging_station.R
+import com.humaxdigital.ev_charging_station.api.availability.ChargepointStatus
+import com.humaxdigital.ev_charging_station.api.chargeprice.ChargePrice
+import com.humaxdigital.ev_charging_station.api.chargeprice.ChargepriceCar
+import com.humaxdigital.ev_charging_station.api.chargeprice.ChargepriceChargepointMeta
+import com.humaxdigital.ev_charging_station.api.chargeprice.ChargepriceTag
+import com.humaxdigital.ev_charging_station.databinding.ItemChargepriceBinding
+import com.humaxdigital.ev_charging_station.databinding.ItemChargepriceVehicleChipBinding
+import com.humaxdigital.ev_charging_station.databinding.ItemConnectorButtonBinding
+import com.humaxdigital.ev_charging_station.model.Chargepoint
+import com.humaxdigital.ev_charging_station.ui.CheckableConstraintLayout
+
+interface Equatable {
+    override fun equals(other: Any?): Boolean
+}
+
+abstract class DataBindingAdapter<T : Equatable>(getKey: ((T) -> Any)? = null) :
+    ListAdapter<T, DataBindingAdapter.ViewHolder<T>>(DiffCallback(getKey)) {
+
+    var onClickListener: ((T) -> Unit)? = null
+
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder<T> {
+        val layoutInflater = LayoutInflater.from(parent.context)
+        val binding =
+            DataBindingUtil.inflate<ViewDataBinding>(layoutInflater, viewType, parent, false)
+        return ViewHolder(binding)
+    }
+
+    override fun onBindViewHolder(holder: ViewHolder<T>, position: Int) =
+        bind(holder, getItem(position))
+
+    class ViewHolder<T>(val binding: ViewDataBinding) :
+        RecyclerView.ViewHolder(binding.root) {
+    }
+
+    open fun bind(holder: ViewHolder<T>, item: T) {
+        holder.binding.setVariable(BR.item, item)
+        holder.binding.executePendingBindings()
+        if (onClickListener != null) {
+            holder.binding.root.setOnClickListener {
+                val listener = onClickListener ?: return@setOnClickListener
+                listener(item)
+            }
+        }
+    }
+
+    class DiffCallback<T : Equatable>(val getKey: ((T) -> Any)?) : DiffUtil.ItemCallback<T>() {
+        override fun areItemsTheSame(oldItem: T, newItem: T): Boolean = if (getKey != null) {
+            (getKey)(oldItem) == (getKey)(newItem)
+        } else {
+            oldItem === newItem
+        }
+
+        override fun areContentsTheSame(oldItem: T, newItem: T): Boolean = oldItem == newItem
+    }
+}
+
+fun chargepointWithAvailability(
+    chargepoints: Iterable<Chargepoint>?,
+    availability: Map<Chargepoint, List<ChargepointStatus>>?
+): List<ConnectorAdapter.ChargepointWithAvailability>? {
+    return chargepoints?.map {
+        val status = availability?.get(it)
+        ConnectorAdapter.ChargepointWithAvailability(it, status)
+    }
+}
+
+class ConnectorAdapter : DataBindingAdapter<ConnectorAdapter.ChargepointWithAvailability>() {
+    data class ChargepointWithAvailability(
+        val chargepoint: Chargepoint,
+        val status: List<ChargepointStatus>?
+    ) :
+        Equatable
+
+    override fun getItemViewType(position: Int): Int = R.layout.item_connector
+}
+
+class ChargepriceAdapter() :
+    DataBindingAdapter<ChargePrice>() {
+
+    val viewPool = RecyclerView.RecycledViewPool();
+    var meta: ChargepriceChargepointMeta? = null
+        set(value) {
+            field = value
+            notifyDataSetChanged()
+        }
+    var myTariffs: Set<String>? = null
+        set(value) {
+            field = value
+            notifyDataSetChanged()
+        }
+    var myTariffsAll: Boolean? = null
+        set(value) {
+            field = value
+            notifyDataSetChanged()
+        }
+
+    override fun getItemViewType(position: Int): Int = R.layout.item_chargeprice
+
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder<ChargePrice> {
+        val holder = super.onCreateViewHolder(parent, viewType)
+        val binding = holder.binding as ItemChargepriceBinding
+        binding.rvTags.apply {
+            adapter = ChargepriceTagsAdapter()
+            layoutManager =
+                LinearLayoutManager(context, LinearLayoutManager.VERTICAL, false).apply {
+                    recycleChildrenOnDetach = true
+                }
+            itemAnimator = null
+            setRecycledViewPool(viewPool)
+        }
+        return holder
+    }
+
+    override fun bind(holder: ViewHolder<ChargePrice>, item: ChargePrice) {
+        super.bind(holder, item)
+        (holder.binding as ItemChargepriceBinding).apply {
+            this.meta = this@ChargepriceAdapter.meta
+            this.myTariffs = this@ChargepriceAdapter.myTariffs
+            this.myTariffsAll = this@ChargepriceAdapter.myTariffsAll
+        }
+    }
+}
+
+class CheckableConnectorAdapter : DataBindingAdapter<Chargepoint>() {
+    private var checkedItem: Int? = 0
+
+    var enabledConnectors: List<String>? = null
+        get() = field
+        set(value) {
+            field = value
+            checkedItem?.let {
+                if (value != null && getItem(it).type !in value) {
+                    val index = currentList.indexOfFirst {
+                        it.type in value
+                    }
+                    checkedItem = if (index == -1) null else index
+                    onCheckedItemChangedListener?.invoke(getCheckedItem())
+                }
+            }
+            notifyDataSetChanged()
+        }
+
+    override fun getItemViewType(position: Int): Int = R.layout.item_connector_button
+
+    override fun onBindViewHolder(holder: ViewHolder<Chargepoint>, position: Int) {
+        val item = getItem(position)
+        super.bind(holder, item)
+        val binding = holder.binding as ItemConnectorButtonBinding
+        binding.enabled = enabledConnectors?.let { item.type in it } ?: true
+        val root = binding.root as CheckableConstraintLayout
+        root.isChecked = checkedItem == position
+        root.setOnClickListener {
+            root.isChecked = true
+        }
+        root.setOnCheckedChangeListener { v: View, checked: Boolean ->
+            if (checked) {
+                checkedItem = holder.bindingAdapterPosition
+                root.post {
+                    notifyDataSetChanged()
+                }
+                onCheckedItemChangedListener?.invoke(getCheckedItem()!!)
+            }
+        }
+    }
+
+    fun getCheckedItem(): Chargepoint? = checkedItem?.let { getItem(it) }
+
+    fun setCheckedItem(item: Chargepoint?) {
+        checkedItem = item?.let { currentList.indexOf(item) }
+    }
+
+    var onCheckedItemChangedListener: ((Chargepoint?) -> Unit)? = null
+}
+
+class ChargepriceTagsAdapter() :
+    DataBindingAdapter<ChargepriceTag>() {
+    override fun getItemViewType(position: Int): Int = R.layout.item_chargeprice_tag
+}
+
+class CheckableChargepriceCarAdapter : DataBindingAdapter<ChargepriceCar>() {
+    private var checkedItem: ChargepriceCar? = null
+
+    override fun getItemViewType(position: Int): Int = R.layout.item_chargeprice_vehicle_chip
+
+    override fun onBindViewHolder(holder: ViewHolder<ChargepriceCar>, position: Int) {
+        val item = getItem(position)
+        super.bind(holder, item)
+        val binding = holder.binding as ItemChargepriceVehicleChipBinding
+        val root = binding.root as Chip
+        root.isChecked = checkedItem == item
+        root.setOnClickListener {
+            root.isChecked = true
+        }
+        root.setOnCheckedChangeListener { v: View, checked: Boolean ->
+            if (checked && item != checkedItem) {
+                checkedItem = item
+                root.post {
+                    notifyDataSetChanged()
+                }
+                onCheckedItemChangedListener?.invoke(getCheckedItem()!!)
+            }
+        }
+    }
+
+    fun getCheckedItem(): ChargepriceCar? = checkedItem
+
+    fun setCheckedItem(item: ChargepriceCar?) {
+        checkedItem = item
+    }
+
+    var onCheckedItemChangedListener: ((ChargepriceCar?) -> Unit)? = null
+}

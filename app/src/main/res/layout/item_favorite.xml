@@ -5,17 +5,17 @@
 
     <data>
 
-        <import type="net.vonforst.evmap.api.UtilsKt" />
+        <import type="com.humaxdigital.ev_charging_station.api.UtilsKt" />
 
-        <import type="net.vonforst.evmap.viewmodel.Status" />
+        <import type="com.humaxdigital.ev_charging_station.viewmodel.Status" />
 
-        <import type="net.vonforst.evmap.ui.BindingAdaptersKt" />
+        <import type="com.humaxdigital.ev_charging_station.ui.BindingAdaptersKt" />
 
-        <import type="net.vonforst.evmap.api.ChargepointApiKt" />
+        <import type="com.humaxdigital.ev_charging_station.api.ChargepointApiKt" />
 
         <variable
             name="item"
-            type="net.vonforst.evmap.viewmodel.FavoritesViewModel.FavoritesListItem" />
+            type="com.humaxdigital.ev_charging_station.viewmodel.FavoritesViewModel.FavoritesListItem" />
     </data>
 
     <FrameLayout

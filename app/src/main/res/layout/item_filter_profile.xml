@@ -7,7 +7,7 @@
 
         <variable
             name="item"
-            type="net.vonforst.evmap.storage.FilterProfile" />
+            type="com.humaxdigital.ev_charging_station.storage.FilterProfile" />
     </data>
 
     <FrameLayout

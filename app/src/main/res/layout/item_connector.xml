@@ -5,8 +5,8 @@
 
     <data>
 
-        <import type="net.vonforst.evmap.adapter.ConnectorAdapter.ChargepointWithAvailability" />
-        <import type="net.vonforst.evmap.ui.BindingAdaptersKt" />
+        <import type="com.humaxdigital.ev_charging_station.adapter.ConnectorAdapter.ChargepointWithAvailability" />
+        <import type="com.humaxdigital.ev_charging_station.ui.BindingAdaptersKt" />
 
         <variable
             name="item"

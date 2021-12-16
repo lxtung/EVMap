@@ -5,27 +5,27 @@
 
     <data>
 
-        <import type="net.vonforst.evmap.model.ChargeLocation" />
+        <import type="com.humaxdigital.ev_charging_station.model.ChargeLocation" />
 
-        <import type="net.vonforst.evmap.model.Chargepoint" />
+        <import type="com.humaxdigital.ev_charging_station.model.Chargepoint" />
 
-        <import type="net.vonforst.evmap.model.ChargeCard" />
+        <import type="com.humaxdigital.ev_charging_station.model.ChargeCard" />
 
-        <import type="net.vonforst.evmap.api.availability.ChargeLocationStatus" />
+        <import type="com.humaxdigital.ev_charging_station.api.availability.ChargeLocationStatus" />
 
-        <import type="net.vonforst.evmap.adapter.DataBindingAdaptersKt" />
+        <import type="com.humaxdigital.ev_charging_station.adapter.DataBindingAdaptersKt" />
 
-        <import type="net.vonforst.evmap.adapter.DetailsAdapterKt" />
+        <import type="com.humaxdigital.ev_charging_station.adapter.DetailsAdapterKt" />
 
-        <import type="net.vonforst.evmap.viewmodel.Resource" />
+        <import type="com.humaxdigital.ev_charging_station.viewmodel.Resource" />
 
-        <import type="net.vonforst.evmap.viewmodel.Status" />
+        <import type="com.humaxdigital.ev_charging_station.viewmodel.Status" />
 
-        <import type="net.vonforst.evmap.ui.BindingAdaptersKt" />
+        <import type="com.humaxdigital.ev_charging_station.ui.BindingAdaptersKt" />
 
-        <import type="net.vonforst.evmap.api.ChargepointApiKt" />
+        <import type="com.humaxdigital.ev_charging_station.api.ChargepointApiKt" />
 
-        <import type="net.vonforst.evmap.api.chargeprice.ChargepriceApi" />
+        <import type="com.humaxdigital.ev_charging_station.api.chargeprice.ChargepriceApi" />
 
         <variable
             name="charger"

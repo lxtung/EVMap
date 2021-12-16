@@ -5,9 +5,9 @@
 
     <data>
 
-        <import type="net.vonforst.evmap.viewmodel.DonateViewModel" />
+        <import type="com.humaxdigital.ev_charging_station.viewmodel.DonateViewModel" />
 
-        <import type="net.vonforst.evmap.viewmodel.Status" />
+        <import type="com.humaxdigital.ev_charging_station.viewmodel.Status" />
 
         <variable
             name="vm"

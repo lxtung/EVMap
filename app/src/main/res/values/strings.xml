@@ -235,4 +235,9 @@
     <string name="deleted_recent_search_results">Recent search results have been deleted</string>
     <string name="settings_data_sources">Data sources</string>
     <string name="help">Help</string>
+    <string name="mapbox_key" translatable="false">mapbox_key</string>
+    <string name="goingelectric_key" translatable="false">goingelectric_key</string>
+    <string name="openchargemap_key" translatable="false">openchargemap_key</string>
+    <string name="chargeprice_key" translatable="false">chargeprice_key</string>
+    <string name="google_maps_key" translatable="false">AIzaSyAL5_fqtsR0cCUtflsxOJ6ukdL60NrZ51c</string>
 </resources>

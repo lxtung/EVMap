@@ -4,7 +4,7 @@
 
     <data>
 
-        <import type="net.vonforst.evmap.viewmodel.FavoritesViewModel" />
+        <import type="com.humaxdigital.ev_charging_station.viewmodel.FavoritesViewModel" />
 
         <variable
             name="vm"

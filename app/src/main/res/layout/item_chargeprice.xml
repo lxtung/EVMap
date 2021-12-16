@@ -5,11 +5,11 @@
 
     <data>
 
-        <import type="net.vonforst.evmap.api.chargeprice.ChargePrice" />
+        <import type="com.humaxdigital.ev_charging_station.api.chargeprice.ChargePrice" />
 
-        <import type="net.vonforst.evmap.api.chargeprice.ChargepriceChargepointMeta" />
+        <import type="com.humaxdigital.ev_charging_station.api.chargeprice.ChargepriceChargepointMeta" />
 
-        <import type="net.vonforst.evmap.ui.BindingAdaptersKt" />
+        <import type="com.humaxdigital.ev_charging_station.ui.BindingAdaptersKt" />
 
         <import type="java.util.Set" />
 

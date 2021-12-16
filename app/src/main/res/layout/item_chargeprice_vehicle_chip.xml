@@ -4,7 +4,7 @@
 
     <data>
 
-        <import type="net.vonforst.evmap.api.chargeprice.ChargepriceCar" />
+        <import type="com.humaxdigital.ev_charging_station.api.chargeprice.ChargepriceCar" />
 
         <variable
             name="item"

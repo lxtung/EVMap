@@ -1,4 +1,0 @@
-Improvements:
-- Different layout for filtering by connector (with better stability)
-- Crash fixed when internet is not available
-- Added missing German translations

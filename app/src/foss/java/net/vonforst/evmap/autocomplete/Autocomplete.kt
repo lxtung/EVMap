@@ -1,4 +1,4 @@
-package net.vonforst.evmap.autocomplete
+package com.humaxdigital.ev_charging_station.autocomplete
 
 import android.content.Context
 

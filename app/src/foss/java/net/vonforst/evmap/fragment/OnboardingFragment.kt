@@ -1,4 +1,4 @@
-package net.vonforst.evmap.fragment
+package com.humaxdigital.ev_charging_station.fragment
 
 import androidx.fragment.app.Fragment
 import androidx.viewpager2.adapter.FragmentStateAdapter

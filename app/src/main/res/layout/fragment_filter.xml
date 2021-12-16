@@ -5,7 +5,7 @@
 
     <data>
 
-        <import type="net.vonforst.evmap.viewmodel.FilterViewModel" />
+        <import type="com.humaxdigital.ev_charging_station.viewmodel.FilterViewModel" />
 
         <variable
             name="vm"

@@ -4,7 +4,7 @@
 
     <data>
 
-        <import type="net.vonforst.evmap.fragment.MultiSelectItem" />
+        <import type="com.humaxdigital.ev_charging_station.fragment.MultiSelectItem" />
 
         <variable
             name="item"

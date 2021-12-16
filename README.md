@@ -5,9 +5,9 @@ EVMap [![Build Status](https://app.travis-ci.com/johan12345/EVMap.svg?branch=mas
 
 Android app to find electric vehicle charging stations.
 
-<a href="https://play.google.com/store/apps/details?id=net.vonforst.evmap" target="_blank">
+<a href="https://play.google.com/store/apps/details?id=com.humaxdigital.ev_charging_station" target="_blank">
 <img src="https://play.google.com/intl/en_us/badges/images/generic/en-play-badge.png" alt="Get it on Google Play" height="100"/></a>
-<a href="https://f-droid.org/repository/browse/?fdid=net.vonforst.evmap" target="_blank">
+<a href="https://f-droid.org/repository/browse/?fdid=com.humaxdigital.ev_charging_station" target="_blank">
 <img src="https://f-droid.org/badge/get-it-on.png" alt="Get it on F-Droid" height="100"/></a>
 
 Features

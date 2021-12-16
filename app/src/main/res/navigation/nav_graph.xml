@@ -6,7 +6,7 @@
 
     <fragment
         android:id="@+id/map"
-        android:name="net.vonforst.evmap.fragment.MapFragment"
+        android:name="com.humaxdigital.ev_charging_station.fragment.MapFragment"
         android:label="MapFragment"
         tools:layout="@layout/fragment_map">
         <action
@@ -50,7 +50,7 @@
     </fragment>
     <fragment
         android:id="@+id/about"
-        android:name="net.vonforst.evmap.fragment.preference.AboutFragment"
+        android:name="com.humaxdigital.ev_charging_station.fragment.preference.AboutFragment"
         android:label="@string/about"
         tools:layout="@layout/fragment_preference">
         <action
@@ -62,27 +62,27 @@
     </fragment>
     <fragment
         android:id="@+id/settings"
-        android:name="net.vonforst.evmap.fragment.preference.SettingsFragment"
+        android:name="com.humaxdigital.ev_charging_station.fragment.preference.SettingsFragment"
         android:label="@string/settings"
         tools:layout="@layout/fragment_preference" />
     <fragment
         android:id="@+id/settings_ui"
-        android:name="net.vonforst.evmap.fragment.preference.UiSettingsFragment"
+        android:name="com.humaxdigital.ev_charging_station.fragment.preference.UiSettingsFragment"
         android:label="@string/settings_ui"
         tools:layout="@layout/fragment_preference" />
     <fragment
         android:id="@+id/settings_data"
-        android:name="net.vonforst.evmap.fragment.preference.DataSettingsFragment"
+        android:name="com.humaxdigital.ev_charging_station.fragment.preference.DataSettingsFragment"
         android:label="@string/settings_data_sources"
         tools:layout="@layout/fragment_preference" />
     <fragment
         android:id="@+id/settings_chargeprice"
-        android:name="net.vonforst.evmap.fragment.preference.ChargepriceSettingsFragment"
+        android:name="com.humaxdigital.ev_charging_station.fragment.preference.ChargepriceSettingsFragment"
         android:label="@string/settings_chargeprice"
         tools:layout="@layout/fragment_preference" />
     <fragment
         android:id="@+id/favs"
-        android:name="net.vonforst.evmap.fragment.FavoritesFragment"
+        android:name="com.humaxdigital.ev_charging_station.fragment.FavoritesFragment"
         android:label="@string/menu_favs"
         tools:layout="@layout/fragment_favorites">
         <action
@@ -91,17 +91,17 @@
     </fragment>
     <fragment
         android:id="@+id/filter"
-        android:name="net.vonforst.evmap.fragment.FilterFragment"
+        android:name="com.humaxdigital.ev_charging_station.fragment.FilterFragment"
         android:label="@string/menu_filter"
         tools:layout="@layout/fragment_filter" />
     <fragment
         android:id="@+id/filter_profiles"
-        android:name="net.vonforst.evmap.fragment.FilterProfilesFragment"
+        android:name="com.humaxdigital.ev_charging_station.fragment.FilterProfilesFragment"
         android:label="@string/menu_manage_filter_profiles"
         tools:layout="@layout/fragment_filter_profiles" />
     <dialog
         android:id="@+id/chargeprice"
-        android:name="net.vonforst.evmap.fragment.ChargepriceFragment"
+        android:name="com.humaxdigital.ev_charging_station.fragment.ChargepriceFragment"
         android:label="@string/chargeprice_title"
         tools:layout="@layout/fragment_chargeprice">
         <action
@@ -113,19 +113,19 @@
             app:popExitAnim="@animator/nav_default_exit_anim" />
         <argument
             android:name="charger"
-            app:argType="net.vonforst.evmap.model.ChargeLocation" />
+            app:argType="com.humaxdigital.ev_charging_station.model.ChargeLocation" />
         <argument
             android:name="dataSource"
             app:argType="string" />
     </dialog>
     <fragment
         android:id="@+id/donate"
-        android:name="net.vonforst.evmap.fragment.DonateFragment"
+        android:name="com.humaxdigital.ev_charging_station.fragment.DonateFragment"
         android:label="@string/donate"
         tools:layout="@layout/fragment_donate" />
     <dialog
         android:id="@+id/opensource_donations"
-        android:name="net.vonforst.evmap.fragment.updatedialogs.OpensourceDonationsDialogFramgent"
+        android:name="com.humaxdigital.ev_charging_station.fragment.updatedialogs.OpensourceDonationsDialogFramgent"
         android:label="@string/donation_dialog_title"
         tools:layout="@layout/dialog_opensource_donations">
         <action
@@ -143,7 +143,7 @@
         app:customDestination="github_sponsors" />
     <fragment
         android:id="@+id/onboarding"
-        android:name="net.vonforst.evmap.fragment.OnboardingFragment"
+        android:name="com.humaxdigital.ev_charging_station.fragment.OnboardingFragment"
         android:label="OnboardingFragment">
         <action
             android:id="@+id/action_onboarding_to_map"

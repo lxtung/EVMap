@@ -5,9 +5,9 @@
 
     <data>
 
-        <import type="net.vonforst.evmap.viewmodel.ChargepriceViewModel" />
-        <import type="net.vonforst.evmap.viewmodel.Status" />
-        <import type="net.vonforst.evmap.ui.BindingAdaptersKt" />
+        <import type="com.humaxdigital.ev_charging_station.viewmodel.ChargepriceViewModel" />
+        <import type="com.humaxdigital.ev_charging_station.viewmodel.Status" />
+        <import type="com.humaxdigital.ev_charging_station.ui.BindingAdaptersKt" />
 
         <variable
             name="vm"

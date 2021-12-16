@@ -1,3 +1,0 @@
-- Abstürze behoben
-- Problem mit Filter nach Anschlüssen behoben
-- Wechsel zwischen Karte und Filteransicht beschleunigt

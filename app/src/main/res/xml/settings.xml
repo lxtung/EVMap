@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
     <Preference
-        android:fragment="net.vonforst.evmap.fragment.preference.UiSettingsFragment"
+        android:fragment="com.humaxdigital.ev_charging_station.fragment.preference.UiSettingsFragment"
         android:title="@string/settings_ui"
         android:icon="@drawable/ic_settings_ui" />
     <Preference
-        android:fragment="net.vonforst.evmap.fragment.preference.DataSettingsFragment"
+        android:fragment="com.humaxdigital.ev_charging_station.fragment.preference.DataSettingsFragment"
         android:title="@string/settings_data_sources"
         android:icon="@drawable/ic_settings_data_source" />
     <Preference
-        android:fragment="net.vonforst.evmap.fragment.preference.ChargepriceSettingsFragment"
+        android:fragment="com.humaxdigital.ev_charging_station.fragment.preference.ChargepriceSettingsFragment"
         android:title="@string/settings_chargeprice"
         android:icon="@drawable/ic_chargeprice" />
 </PreferenceScreen>

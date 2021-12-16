@@ -2,7 +2,7 @@
 <PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
     <PreferenceCategory android:title="@string/settings_charger_data">
-        <net.vonforst.evmap.ui.DataSourceSelectDialogPreference
+        <com.humaxdigital.ev_charging_station.ui.DataSourceSelectDialogPreference
             android:key="data_source"
             android:title="@string/pref_data_source"
             android:entries="@array/pref_data_source_names"

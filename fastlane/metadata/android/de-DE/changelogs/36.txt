@@ -1,2 +1,0 @@
-Verbesserungen:
-- Verschiedene Abstürze behoben

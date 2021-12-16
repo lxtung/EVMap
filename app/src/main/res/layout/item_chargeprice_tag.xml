@@ -5,14 +5,14 @@
 
     <data>
 
-        <import type="net.vonforst.evmap.api.chargeprice.ChargepriceTag" />
+        <import type="com.humaxdigital.ev_charging_station.api.chargeprice.ChargepriceTag" />
 
         <variable
             name="item"
             type="ChargepriceTag" />
     </data>
 
-    <net.vonforst.evmap.ui.BalancedBreakingTextView
+    <com.humaxdigital.ev_charging_station.ui.BalancedBreakingTextView
         android:id="@+id/rvTags"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"

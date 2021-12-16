@@ -5,9 +5,9 @@
 
     <data>
 
-        <import type="net.vonforst.evmap.model.Chargepoint" />
+        <import type="com.humaxdigital.ev_charging_station.model.Chargepoint" />
 
-        <import type="net.vonforst.evmap.ui.BindingAdaptersKt" />
+        <import type="com.humaxdigital.ev_charging_station.ui.BindingAdaptersKt" />
 
         <variable
             name="item"
@@ -18,7 +18,7 @@
             type="boolean" />
     </data>
 
-    <net.vonforst.evmap.ui.CheckableConstraintLayout
+    <com.humaxdigital.ev_charging_station.ui.CheckableConstraintLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:background="@drawable/button_outline"
@@ -74,5 +74,5 @@
             app:layout_constraintTop_toBottomOf="@+id/imageView"
             tools:text="350 kW" />
 
-    </net.vonforst.evmap.ui.CheckableConstraintLayout>
+    </com.humaxdigital.ev_charging_station.ui.CheckableConstraintLayout>
 </layout>

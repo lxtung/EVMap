@@ -10,7 +10,7 @@ android {
     buildToolsVersion "30.0.3"
 
     defaultConfig {
-        applicationId "net.vonforst.evmap"
+        applicationId "com.humaxdigital.ev_charging_station"
         minSdkVersion 21
         targetSdkVersion 31
         versionCode 67
@@ -20,28 +20,6 @@ android {
     }
 
     signingConfigs {
-        release {
-            def isRunningOnTravis = System.getenv("CI") == "true"
-            if (isRunningOnTravis) {
-                // configure keystore
-                storeFile = file("../_ci/keystore.jks")
-                storePassword = System.getenv("keystore_password")
-                keyAlias = System.getenv("keystore_alias")
-                keyPassword = System.getenv("keystore_alias_password")
-            }
-        }
-    }
-
-    buildTypes {
-        release {
-            minifyEnabled false
-            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
-            signingConfig signingConfigs.release
-        }
-        debug {
-            applicationIdSuffix ".debug"
-            debuggable true
-        }
     }
 
     flavorDimensions "dependencies"
@@ -68,40 +46,6 @@ android {
     buildFeatures {
         dataBinding = true
         viewBinding true
-    }
-
-    // add API keys from environment variable if not set in apikeys.xml
-    applicationVariants.all { variant ->
-        ext.env = System.getenv()
-        def goingelectricKey = env.GOINGELECTRIC_API_KEY ?: project.findProperty("GOINGELECTRIC_API_KEY")
-        if (goingelectricKey != null) {
-            variant.resValue "string", "goingelectric_key", goingelectricKey
-        }
-        def openchargemapKey = env.OPENCHARGEMAP_API_KEY ?: project.findProperty("OPENCHARGEMAP_API_KEY")
-        if (openchargemapKey == null && project.hasProperty("OPENCHARGEMAP_API_KEY_ENCRYPTED")) {
-            openchargemapKey = decode(project.findProperty("OPENCHARGEMAP_API_KEY_ENCRYPTED"), "FmK.d,-f*p+rD+WK!eds")
-        }
-        if (openchargemapKey != null) {
-            variant.resValue "string", "openchargemap_key", openchargemapKey
-        }
-        def googleMapsKey = env.GOOGLE_MAPS_API_KEY ?: project.findProperty("GOOGLE_MAPS_API_KEY")
-        if (googleMapsKey != null && variant.flavorName == 'google') {
-            variant.resValue "string", "google_maps_key", googleMapsKey
-        }
-        def mapboxKey = env.MAPBOX_API_KEY ?: project.findProperty("MAPBOX_API_KEY")
-        if (mapboxKey == null && project.hasProperty("MAPBOX_API_KEY_ENCRYPTED")) {
-            mapboxKey = decode(project.findProperty("MAPBOX_API_KEY_ENCRYPTED"), "FmK.d,-f*p+rD+WK!eds")
-        }
-        if (mapboxKey != null) {
-            variant.resValue "string", "mapbox_key", mapboxKey
-        }
-        def chargepriceKey = env.CHARGEPRICE_API_KEY ?: project.findProperty("CHARGEPRICE_API_KEY")
-        if (chargepriceKey == null && project.hasProperty("CHARGEPRICE_API_KEY_ENCRYPTED")) {
-            chargepriceKey = decode(project.findProperty("CHARGEPRICE_API_KEY_ENCRYPTED"), "FmK.d,-f*p+rD+WK!eds")
-        }
-        if (chargepriceKey != null) {
-            variant.resValue "string", "chargeprice_key", chargepriceKey
-        }
     }
 
     lintOptions {
@@ -199,16 +143,4 @@ dependencies {
     kapt "com.squareup.moshi:moshi-kotlin-codegen:1.12.0"
 
     coreLibraryDesugaring 'com.android.tools:desugar_jdk_libs:1.1.5'
-}
-
-private static String decode(String s, String key) {
-    return new String(xorWithKey(s.decodeBase64(), key.getBytes()), "UTF-8");
-}
-
-private static byte[] xorWithKey(byte[] a, byte[] key) {
-    byte[] out = new byte[a.length];
-    for (int i = 0; i < a.length; i++) {
-        out[i] = (byte) (a[i] ^ key[i%key.length]);
-    }
-    return out;
 }

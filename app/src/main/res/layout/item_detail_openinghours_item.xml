@@ -11,7 +11,7 @@
 
         <variable
             name="hours"
-            type="net.vonforst.evmap.model.OpeningHoursDays" />
+            type="com.humaxdigital.ev_charging_station.model.OpeningHoursDays" />
 
         <variable
             name="dayOfWeek"

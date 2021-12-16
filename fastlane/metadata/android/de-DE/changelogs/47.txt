@@ -1,3 +1,0 @@
-Verschiedene Abstürze behoben
-Bessere Unterstützung für geteilte Standorte aus anderen Apps
-F-Droid-Version: Suchfeld wird beim Öffnen automatisch aktiviert

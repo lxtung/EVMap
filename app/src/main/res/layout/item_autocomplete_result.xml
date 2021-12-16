@@ -6,12 +6,12 @@
     <data>
 
         <import type="android.text.util.Linkify" />
-        <import type="net.vonforst.evmap.adapter.PlaceAutocompleteAdapterKt" />
-        <import type="net.vonforst.evmap.ui.BindingAdaptersKt" />
+        <import type="com.humaxdigital.ev_charging_station.adapter.PlaceAutocompleteAdapterKt" />
+        <import type="com.humaxdigital.ev_charging_station.ui.BindingAdaptersKt" />
 
         <variable
             name="item"
-            type="net.vonforst.evmap.autocomplete.AutocompletePlace" />
+            type="com.humaxdigital.ev_charging_station.autocomplete.AutocompletePlace" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout

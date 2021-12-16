@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
-    <net.vonforst.evmap.ui.MultiSelectDialogPreference
+    <com.humaxdigital.ev_charging_station.ui.MultiSelectDialogPreference
         android:key="chargeprice_my_vehicle"
         android:title="@string/pref_my_vehicle"
         app:showAllButton="false"
         app:defaultToAll="false" />
-    <net.vonforst.evmap.ui.MultiSelectDialogPreference
+    <com.humaxdigital.ev_charging_station.ui.MultiSelectDialogPreference
         android:key="chargeprice_my_tariffs"
         android:title="@string/pref_my_tariffs"
         android:summary="@string/pref_my_tariffs_summary" />

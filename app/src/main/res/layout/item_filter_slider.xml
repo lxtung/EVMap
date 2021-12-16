@@ -5,11 +5,11 @@
 
     <data>
 
-        <import type="net.vonforst.evmap.model.SliderFilter" />
+        <import type="com.humaxdigital.ev_charging_station.model.SliderFilter" />
 
-        <import type="net.vonforst.evmap.model.SliderFilterValue" />
+        <import type="com.humaxdigital.ev_charging_station.model.SliderFilterValue" />
 
-        <import type="net.vonforst.evmap.model.FilterWithValue" />
+        <import type="com.humaxdigital.ev_charging_station.model.FilterWithValue" />
 
         <variable
             name="item"
